@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        /* Set the background color for the whole page */
+        body {
+            background-color: #FFFAF0; /* Peach close to white */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Center the content */
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Style for the buttons */
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #556B2F; /* Light green background for all buttons */
+            color: #fff; /* White text color for better contrast */
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            width: 150px; /* Set a fixed width for all buttons */
+            height: 40px; /* Set a fixed height for all buttons */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #FF69B4; /* Pink background on hover */
+        }
+
+        /* Style for the headings */
+        h1 {
+            color: #333;
+            font-size: 36px; /* Increased font size */
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>Hello, Welcome!</h1>
+        <a href="{% url 'meeting' %}" class="button">Create Meeting</a>
+        <a href="{% url 'join' %}" class="button">Join Meeting</a>
+        <a href="{% url 'signout' %}" class="button">Logout</a>
+    </div>
+</body>
+</html>

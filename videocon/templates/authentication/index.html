@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <style>
+        /* Set the background color for the whole page */
+        body {
+            background-color: #FFFAF0; /* Peach close to white */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Style for the headings */
+        h1, h2 {
+            color: #333; /* Dark text color */
+        }
+
+        h1 {
+            font-size: 36px; /* Increased font size */
+        }
+
+        h2 {
+            font-size: 24px; /* Font size for Hello and Welcome messages */
+        }
+
+        /* Style for the content container */
+        .center {
+            text-align: center; /* Center-align text */
+        }
+
+        /* Style for the buttons */
+        button {
+            padding: 10px 20px;
+            background-color: #556B2F; /* Olive green background for buttons */
+            color: #fff; /* White text color for better contrast */
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin: 10px;
+        }
+
+        button a {
+            text-decoration: none;
+            color: #fff; /* White text color for button text */
+        }
+
+        button:hover {
+            background-color: #FF69B4; /* Pink background on hover */
+        }
+
+        /* Style for the alert messages */
+        .alert {
+            padding: 10px;
+            margin: 10px;
+            background-color: #556B2F; /* Olive green background for alerts */
+            color: #fff; /* White text color for alert text */
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .alert-dismissable {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close {
+            background-color: #FF69B4; /* Pink color for the close button */
+            color: #fff; /* White text color for the close button */
+            border: none;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            background-color: #FF1493; /* Darker pink on hover */
+        }
+    </style>
+</head>
+<body>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissable fade show" role="alert">
+        <strong>Message:</strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <div class="center">
+        <h1>Welcome!!</h1>
+        {% if user.is_authenticated %}
+        <h2>Hello {{ fname }}</h2>
+        <p>You have successfully logged in</p>
+        <button type="submit"><a href="/signout">Signout</a></button>
+        {% else %}
+        <button type="submit"><a href="/signin">Signin</a></button>
+        <button type="submit"><a href="/signup">Signup</a></button>
+        {% endif %}
+    </div>
+</body>
+</html>

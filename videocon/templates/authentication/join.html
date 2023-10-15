@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>join meeting</title>
+</head>
+<body>
+    <form action="/join" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInput" class="form-label">Room ID</label>
+          <input type="text" class="form-control" id="roomid" name="roomid" aria-describedby="roomid">
+          
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    
+</body>
+</html>
